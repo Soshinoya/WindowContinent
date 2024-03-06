@@ -40,7 +40,7 @@ phoneInputForm.addEventListener('submit', e => {
     if (checkingCorrectPhoneNumber(phoneInput.value)) {
         document.querySelectorAll('main.main section').forEach(section => section.remove())
         // Переход на страницу подтверждения кода (codeConfirmation.html)
-        window.location.href = 'codeConfirmation.html'
+        window.location.href = 'code-confirmation.html'
     } else {
         toggleAuthError(true, 'Вероятно, в номере ошибка, повторите ввод')
     }
@@ -50,5 +50,5 @@ const linkCodeAlreadyExist = document.querySelector('#code-already-exist')
 linkCodeAlreadyExist.addEventListener('click', e => {
     e.preventDefault()
     // Переход на страницу подтверждения кода (codeConfirmation.html)
-    window.location.href = 'codeConfirmation.html'
+    window.location.href = 'code-confirmation.html'
 })

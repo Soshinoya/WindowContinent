@@ -1,16 +1,15 @@
 const checkingCorrectCode = async value => true
 
 let notificationTimeout;
-let progress;
 
 const toggleProgressBar = config => {
+    let progress;
     let progressStartValue = 100,
         progressEndValue = 0,
         speed = config.speed;
 
     if (config.visible) {
         const circularProgress = document.querySelector(config.selector)
-        console.log(circularProgress)
 
         progress = setInterval(() => {
             progressStartValue--;

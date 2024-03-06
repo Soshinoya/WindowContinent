@@ -44,7 +44,7 @@ const linkEnterAnotherPhone = document.querySelector('#link-enter-another-phone'
 linkEnterAnotherPhone.addEventListener('click', e => {
     e.preventDefault()
     // Переход на страницу ввода номера телефона (checkPhone.html)
-    window.location.href = 'checkPhone.html'
+    window.location.href = 'index.html'
 })
 
 codeConfirmationForm.addEventListener('submit', async e => {
@@ -53,7 +53,7 @@ codeConfirmationForm.addEventListener('submit', async e => {
     if (getCode().length === 4) {
         if (await checkingCorrectCode(+getCode())) {
             // Переход на страницу "Доступ разрешён" (accessAllowed.html)
-            window.location.href = 'accessAllowed.html'
+            window.location.href = 'access-allowed.html'
             return
         }
     }

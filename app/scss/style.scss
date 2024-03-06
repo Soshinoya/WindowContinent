@@ -8,8 +8,6 @@
 }
 
 .confirmation {
-    height: 100dvh;
-
     &__holder {
         max-width: 390px;
         display: flex;
@@ -119,9 +117,8 @@
     }
 }
 
-.network-available {
-    height: 100dvh;
-
+.network-available,
+.network-denied {
     &__holder {
         max-width: 390px;
         display: flex;
@@ -149,6 +146,29 @@
         font-size: 18px;
         line-height: 140%;
         margin-bottom: 50px;
+    }
+}
+
+.network-denied {
+    &__logo {
+        height: 50px;
+        margin-bottom: 30px;
+    }
+
+    &__wifi {
+        height: 80px;
+        margin-bottom: 25px;
+    }
+
+    &__text {
+        font-size: 16px;
+        line-height: 22px;
+        margin-bottom: 0;
+    }
+
+    &__link {
+        position: absolute;
+        bottom: 30px;
     }
 }
 
