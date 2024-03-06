@@ -1,0 +1,20 @@
+// Basic colors
+$black-color: #222222;
+$white-color: #fff;
+$main-color: #135EE4;
+$main2-color: #003595;
+$accent-color: #76BC21;
+$error-color: #F9326D;
+$sep-color: #B5BBC2;
+
+$transitionTimingFunc: ease-in-out;
+
+%roboto-400 {
+    font-family: 'Roboto';
+    font-weight: 400;
+}
+
+%roboto-700 {
+    font-family: 'Roboto';
+    font-weight: 700;
+}

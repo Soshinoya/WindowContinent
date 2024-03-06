@@ -1,0 +1,57 @@
+doctype html
+html(lang='ru')
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible" content="ie=edge")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        title Оконный континент
+        link(rel="stylesheet" href="css/style.min.css")
+    body
+
+    main.main
+        template#notification--error
+            .notification.notification--error
+                p.notification__message
+                .notification__icon
+                    .circular-progress
+                        img(src="./images/icons/xmark.svg" alt="крестик")
+        template#number-confirmation
+            section.confirmation.number-confirmation
+                .container
+                    .confirmation__holder.number-confirmation__holder
+                        .confirmation__logo
+                            img(src="./images/logo/logo.svg" alt="Оконный континент")
+                        form.confirmation-form.number-confirmation-form(action="#")
+                            p.confirmation-form__text.number-confirmation-form__text Для доступа в Интернет необходимо подтвердить номер телефона
+                            input.input.confirmation-form__input.number-confirmation-form__input(type="text" placeholder="Введите номер телефона")
+                            button.button.confirmation-form__btn(type="submit") Получить код
+                        a.link.number-confirmation__link(id="code-already-exist" href="#") Уже есть код
+        template#code-confirmation
+            section.confirmation.code-confirmation
+                .container
+                    .confirmation__holder.code-confirmation__holder
+                        .confirmation__logo
+                            img(src="./images/logo/logo.svg" alt="Оконный континент")
+                        form.confirmation-form.code-confirmation-form(action="#")
+                            p.confirmation-form__text.code-confirmation-form__text На ваш номер отправлено SMS с кодом подтверждения. Введите код для входа
+                                .code-confirmation-form__field
+                                    input.input.confirmation-form__input.code-confirmation-form__input(type="number" inputmode="numeric" autocomplete="one-time-code")
+                                    input.input.confirmation-form__input.code-confirmation-form__input(type="number" inputmode="numeric")
+                                    input.input.confirmation-form__input.code-confirmation-form__input(type="number" inputmode="numeric")
+                                    input.input.confirmation-form__input.code-confirmation-form__input(type="number" inputmode="numeric")
+                            button.button.confirmation-form__btn(type="submit") Авторизация
+                        .code-confirmation__links
+                            a.link.code-confirmation__link(href="#") Отправить код ещё раз
+                            a.link.code-confirmation__link(id="link-enter-another-phone" href="#") Ввести другой номер телефона
+        template#network-available
+            section.network-available
+                .container
+                    .network-available__holder
+                        .network-available__logo
+                            img(src="./images/logo/logo.svg" alt="Оконный континент")
+                        .network-available__wifi
+                            img(src="./images/icons/wifi.svg" alt="Wi-Fi")
+                        p.network-available__text Интернет доступен
+                        a.link.network-available__link(href="https://www.okonti.ru" target="_blank") www.okonti.ru
+
+    script(src="js/main.min.js" defer)

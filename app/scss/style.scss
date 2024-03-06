@@ -1,0 +1,132 @@
+@import "vars";
+@import "fonts";
+@import "reset";
+@import "global";
+
+* {
+    appearance: none;
+}
+
+.confirmation {
+    height: 100dvh;
+
+    &__holder {
+        max-width: 390px;
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+        align-items: center;
+        margin: 140px auto 0;
+
+        &--error {
+            gap: 0;
+
+            .confirmation__logo {
+                margin-bottom: 36px;
+            }
+
+            .confirmation-form {
+                margin-top: 30px;
+            }
+        }
+    }
+
+    &__holder--error {
+        .number-confirmation__logo {
+            margin-bottom: 36px;
+        }
+
+        .number-confirmation-form {
+            margin-bottom: 50px;
+        }
+
+        .code-confirmation__links {
+            margin-top: 50px;
+        }
+    }
+
+    &__logo {
+        height: 54px;
+    }
+}
+
+.confirmation-form {
+    width: 100%;
+
+    &__text {
+        text-align: center;
+        margin-bottom: 30px;
+        font-size: 18px;
+        line-height: 140%;
+
+        &--hidden {
+            display: none;
+        }
+    }
+
+    &__input {
+        margin-bottom: 20px;
+    }
+}
+
+.code-confirmation {
+    &__links {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        justify-content: center;
+
+        .link {
+            text-align: center;
+        }
+    }
+}
+
+.code-confirmation-form {
+    &__field {
+        max-width: 216px;
+        display: flex;
+        align-items: center;
+        margin: 0 auto;
+        gap: 10px;
+    }
+
+    &__input {
+        font-size: 24px;
+    }
+}
+
+.network-available {
+    height: 100dvh;
+
+    &__holder {
+        max-width: 390px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 140px auto 0;
+    }
+
+    &__logo {
+        height: 54px;
+        margin-bottom: 66px;
+    }
+
+    &__wifi {
+        height: 100px;
+        margin-bottom: 20px;
+    }
+
+    &__text,
+    &__link {
+        text-align: center;
+    }
+
+    &__text {
+        font-size: 18px;
+        line-height: 140%;
+        margin-bottom: 50px;
+    }
+}
+
+@import "media";
