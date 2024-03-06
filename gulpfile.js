@@ -56,14 +56,22 @@ function styles() {
     .pipe(browserSync.stream())
 }
 
-function scripts() {
+function generalScripts() {
   return src([
     'app/js/plugins/imask.js',
     'app/js/main.js'
   ])
     .pipe(concat('main.min.js'))
     .pipe(uglify())
-    .pipe(dest('app/js'))
+    .pipe(dest('app/js/minified'))
+    .pipe(browserSync.stream())
+}
+
+function scripts() {
+  return src(['app/js/pages/*.js'])
+    .pipe(uglify()) // Минифицировать каждый файл
+    .pipe(rename({ suffix: '.min' })) // Добавить суффикс .min
+    .pipe(dest('app/js/minified')) // Переместить в папку app/js/minified
     .pipe(browserSync.stream())
 }
 
@@ -71,7 +79,7 @@ function build() {
   src([
     'app/**/*.html',
     'app/css/**/*.css',
-    'app/js/main.min.js'
+    'app/js/minified/*.js'
   ], { base: 'app' })
     .pipe(dest('build'));
   src('app/fonts/**/*.*').pipe(dest('build/fonts/'));
@@ -85,16 +93,16 @@ function cleanBuild() {
 
 function watching() {
   watch(['app/**/*.scss'], styles);
-  watch(['app/js/**/*.js', '!app/js/main.min.js'], scripts);
-  watch(['app/utils/**/*.js', '!app/js/main.min.js'], scripts);
+  watch(['app/js/main.js', '!app/js/main.min.js'], generalScripts);
+  watch(['app/js/pages/*.js'], scripts);
   watch(['app/**/*.jade'], jadeCompiler).on('change', browserSync.reload);
-  // watch(['app/**/*.html']).on('change', browserSync.reload);
 }
 
 
 
 exports.styles = styles;
 exports.scripts = scripts;
+exports.generalScripts = generalScripts;
 exports.browsersync = browsersync;
 exports.watching = watching;
 exports.img = img;
@@ -103,4 +111,4 @@ exports.jadeCompiler = jadeCompiler;
 exports.build = series(cleanBuild, build);
 
 
-exports.default = parallel(jadeCompiler, styles, scripts, browsersync, watching);
+exports.default = parallel(jadeCompiler, styles, generalScripts, scripts, browsersync, watching);

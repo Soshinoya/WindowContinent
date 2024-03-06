@@ -54,6 +54,11 @@ body {
     &:hover {
         color: $black-color;
     }
+
+    &--disabled {
+        color: $black-color;
+        cursor: default;
+    }
 }
 
 .input {
